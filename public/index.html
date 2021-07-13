@@ -1,0 +1,290 @@
+<html>
+	<head>
+		<title>Lark Bingo Helper</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.4/simplebar.min.css"
+		/>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+
+	<body class="d-flex h-100 text-center bg-light">
+		<div class="cover-container d-flex w-80 h-100 p-3 mx-auto flex-column">
+			<header class="mb-auto">
+				<div>
+					<a href="/" class="text-dark logo">
+						<h3 class="text-center \">
+							<strong>L.Ark Bingo Helper</strong>
+						</h3>
+					</a>
+					<span class="badge rounded-pill bg-primary px-3 mb-5">Updated</span>
+					<span class="badge rounded-pill bg-secondary py-1 px-3 mb-5">ver. 1.1</span>
+				</div>
+			</header>
+
+			<main class="px-3">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="card border-dark h-90">
+							<div class="card-header">Bingo Logs</div>
+							<div class="card-body text-dark">
+								<h5 class="card-title">빙고게임 로그</h5>
+								<small class="text-muted d-block mb-2"
+									>가장위가 최신 로그입니다.</small
+								>
+								<div id="log-box"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="main-container">
+							<table id="board">
+								<tr>
+									<th class="th-corner"></th>
+									<th>A</th>
+									<th>B</th>
+									<th>C</th>
+									<th>D</th>
+									<th>E</th>
+								</tr>
+								<tr>
+									<th class="th-vertical">1</th>
+									<td id="cell-a1" class="cell">
+										<span class="board-label">A1</span>
+									</td>
+									<td id="cell-b1" class="cell">
+										<span class="board-label">B1</span>
+									</td>
+									<td id="cell-c1" class="cell">
+										<span class="board-label">C1</span>
+									</td>
+									<td id="cell-d1" class="cell">
+										<span class="board-label">D1</span>
+									</td>
+									<td id="cell-e1" class="cell">
+										<span class="board-label">E1</span>
+									</td>
+								</tr>
+								<tr>
+									<th class="th-vertical">2</th>
+									<td id="cell-a2" class="cell">
+										<span class="board-label">A2</span>
+									</td>
+									<td id="cell-b2" class="cell">
+										<span class="board-label">B2</span>
+									</td>
+									<td id="cell-c2" class="cell">
+										<span class="board-label">C2</span>
+									</td>
+									<td id="cell-d2" class="cell">
+										<span class="board-label">D2</span>
+									</td>
+									<td id="cell-e2" class="cell">
+										<span class="board-label">E2</span>
+									</td>
+								</tr>
+								<tr>
+									<th class="th-vertical">3</th>
+									<td id="cell-a3" class="cell">
+										<span class="board-label">A3</span>
+									</td>
+									<td id="cell-b3" class="cell">
+										<span class="board-label">B3</span>
+									</td>
+									<td id="cell-c3" class="cell">
+										<span class="board-label">C3</span>
+									</td>
+									<td id="cell-d3" class="cell">
+										<span class="board-label">D3</span>
+									</td>
+									<td id="cell-e3" class="cell">
+										<span class="board-label">E3</span>
+									</td>
+								</tr>
+								<tr>
+									<th class="th-vertical">4</th>
+									<td id="cell-a4" class="cell">
+										<span class="board-label">A4</span>
+									</td>
+									<td id="cell-b4" class="cell">
+										<span class="board-label">B4</span>
+									</td>
+									<td id="cell-c4" class="cell">
+										<span class="board-label">C4</span>
+									</td>
+									<td id="cell-d4" class="cell">
+										<span class="board-label">D4</span>
+									</td>
+									<td id="cell-e4" class="cell">
+										<span class="board-label">E4</span>
+									</td>
+								</tr>
+								<tr>
+									<th class="th-vertical">5</th>
+									<td id="cell-a5" class="cell">
+										<span class="board-label">A5</span>
+									</td>
+									<td id="cell-b5" class="cell">
+										<span class="board-label">B5</span>
+									</td>
+									<td id="cell-c5" class="cell">
+										<span class="board-label">C5</span>
+									</td>
+									<td id="cell-d5" class="cell">
+										<span class="board-label">D5</span>
+									</td>
+									<td id="cell-e5" class="cell">
+										<span class="board-label">E5</span>
+									</td>
+								</tr>
+							</table>
+							<div class="row" id="tool-box">
+								<div class="col-12">
+									<div class="card">
+										<div class="card-body">
+											<button
+												class="btn btn-success tool-btn"
+												id="prev"
+												disabled
+											>
+												<i class="fas fa-angle-left"></i>
+											</button>
+											<button class="btn btn-outline-warning" id="reset">
+												Reset
+											</button>
+											<button
+												class="btn btn-success tool-btn"
+												id="next"
+												disabled
+											>
+												<i class="fas fa-angle-right"></i>
+											</button>
+										</div>
+										<div class="card-footer text-center">
+											<span id="page-count">0 / 0</span>
+											page
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="row">
+							<div class="col-12 mb-3">
+								<div class="card border-dark">
+									<div class="card-header">How to Use</div>
+									<div class="card-body text-dark">
+										<h5 class="card-title">빙고게임 도우미 사용방법</h5>
+										<p class="card-text text-start">
+											- 시작 전 랜덤으로 지정되는 2칸은
+											<kbd>ctrl</kbd> + <kbd class="kbd">click</kbd> 으로
+											설정할 수 있습니다. (토글 가능)<br />
+											- 폭탄을 놓을 칸은
+											<kbd>click</kbd> 으로 선택할 수 있습니다. (토글 가능)<br />
+											- 뒤집힌 칸은 회색, 빙고가 된 칸은 빨간색으로
+											표시됩니다.
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-12">
+								<div class="card border-dark">
+									<div class="card-header">Bingo Rooms</div>
+									<div class="card-body text-dark">
+										<h5 class="card-title">빙고방 생성 / 참여</h5>
+										<p class="card-text text-start">
+											- 파티원과 빙고게임 진행상황을 공유하려면 코드(UUID)를
+											공유하세요.
+											<br />
+											- 빙고방에 참여하려면 공유받은 코드를 입력하세요. <br />
+											- 빙고방은 페이지에 접속하면 자동으로 생성되며 아래에
+											코드가 표시됩니다. <br />
+										</p>
+									</div>
+									<hr class="my-0" />
+									<div class="card-body text-dark">
+										<div class="input-group mb-2">
+											<input
+												type="text"
+												class="form-control"
+												id="session-uuid"
+												placeholder="your_uuid"
+												readonly
+											/>
+											<button
+												class="btn btn-outline-secondary"
+												type="button"
+												id="copy-uuid"
+											>
+												<i class="far fa-clone"></i>
+											</button>
+											<button
+												class="btn btn-outline-secondary"
+												type="button"
+												id="link-uuid"
+											>
+												<i class="fas fa-link"></i>
+											</button>
+										</div>
+										<div class="input-group mb-2">
+											<span class="input-group-text">UUID</span>
+											<input
+												type="text"
+												class="form-control"
+												id="target-uuid"
+												placeholder="여기에 붙여넣기"
+											/>
+										</div>
+										<div class="d-grid gap-2">
+											<button
+												class="btn btn-outline-success btn-block"
+												id="join-bingo"
+											>
+												참여하기
+											</button>
+											<button
+												class="btn btn-outline-danger btn-block"
+												id="leave-bingo"
+											>
+												나가기
+											</button>
+											<button
+												class="btn btn-outline-danger btn-block"
+												id="end-bingo"
+											>
+												세션종료
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+
+			<footer class="mt-auto">
+				<p>
+					Created by
+					<a href="#" class="text-dark">@SOYANYAN</a>.
+				</p>
+			</footer>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/combine/npm/bootstrap@5.0.1,npm/jquery@3.6.0"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+		<script src="https://cdn.socket.io/4.1.2/socket.io.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.4/simplebar.min.js"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>
